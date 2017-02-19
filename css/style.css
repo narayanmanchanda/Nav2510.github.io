@@ -1,0 +1,137 @@
+.navbar {
+      margin-bottom: 0;
+      background-color: rgba(36, 52, 97, 0.84);
+      z-index: 9999;
+      border: 0;
+      font-size: 20px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 2px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #f4511e !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+    .jumbotron {
+       background-image: url("http://placehold.it/1500x700");
+       background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+background-size: cover;
+      color: #fff;
+      padding: 200px 50px;
+      font-family: Montserrat, sans-serif;
+
+  }
+  .btn.btn-primary
+  {
+    background-color: #474977;
+    font-size: 20px;
+    font-style: normal;
+    font-family: cursive;
+    -webkit-max-logical-width: 200px;
+    -webkit-min-logical-width: 150px;
+    -webkit-max-logical-height: 100px;
+    -webkit-min-logical-height: 55px;
+  }
+    @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+  .about
+  {
+    text-align: center;
+    text-decoration: underline;
+    text-indent: initial;
+    text-shadow: cyan;
+    letter-spacing: 1px;
+    line-height: 1.42857143;
+    font-size: 40px;
+    font-family: cursive;
+    -webkit-font-smoothing: auto;
+  }
+.content
+{
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    font-family: initial;
+    -webkit-font-smoothing: auto;
+    letter-spacing: 1px;
+}
+.chgbtn
+{
+
+}
+img {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+    border: 1px solid #777;
+}
+.panel
+{
+background-color: azure;
+}
+.footerheading
+{
+    font-size: 18px;
+        text-align: -webkit-center;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    -webkit-font-smoothing: auto;
+    text-decoration: none;
+}
+.footerbtn
+{
+
+}
+.footerterms
+{
+
+}
