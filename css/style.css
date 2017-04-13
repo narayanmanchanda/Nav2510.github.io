@@ -21,7 +21,7 @@
       color: #fff !important;
   }
     .jumbotron {
-       background-image: url("http://placehold.it/1500x700");
+       background-image: url("https://image.shutterstock.com/z/stock-photo-image-of-male-entrepreneur-walking-on-the-road-with-numbers-while-carrying-suitcase-336606005.jpg");
        background-repeat: no-repeat;
 background-position: center center;
 background-attachment: fixed;
@@ -37,6 +37,7 @@ background-size: cover;
     font-size: 20px;
     font-style: normal;
     font-family: cursive;
+    left :  10%;
     -webkit-max-logical-width: 200px;
     -webkit-min-logical-width: 150px;
     -webkit-max-logical-height: 100px;
