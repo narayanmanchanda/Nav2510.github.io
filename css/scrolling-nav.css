@@ -1,0 +1,127 @@
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+/* ========= Navigation bar related ======= */
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+.navbar_btn {
+    text-align: center;
+    margin: 5px;
+    height: auto;
+    width: 80px;
+    padding: 10px;
+    color: #bbbbbb;
+    border: 1px solid #bbbbbb;
+    float: right;
+}
+#sign_up {
+    margin-right: -5px;
+}
+/* ======== Navigation bar ends here ====== */
+
+/* ======== Banner starts here ======= */
+#banner_image {
+    width: 100%;
+}
+#banner_text {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 3px;
+    word-spacing: 6px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    max-width : 500px;
+    color: #ffffff;
+    width:40%;
+    top : 30%;
+    left: 10%;
+    position:absolute;
+}
+.banner {
+  position : relative;
+}
+
+#banner_login_btn {
+    //position: absolute;
+    border-radius: 1px;
+    //top:55%;
+    //left: 34.4%;
+    float:right;
+    background-color : rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding : 8px 17px 8px 17px;
+}
+#more_button {
+    text-align: center;
+    position: absolute;
+    border-radius: 1px;
+    top:80%;
+    left: 50%;
+    float:right;
+    color: black;
+    background-color : rgba(50, 50, 50, 0.3);
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding : 5px 30px 5px 30px;
+}
+/*========= Banner ends here==========*/
+
+/*==========About section starts here =====*/
+.about-section {
+    color: #ee8b21;
+    height: 50%;
+    background-color: #434343;
+}
+#about_heading {
+    padding-top: 70px;
+    font-size: 49px;
+    margin-bottom: 40px;
+}
+#about_discription {
+    font-size: 17px;
+    word-spacing: 4px;
+    padding-left: 100px;
+    margin-bottom: 160px;
+}
+/*==========About section ends here ======*/
+
+/*==========Courses section starts here ========*/
+.courses-section {
+    height: 100%;
+    text-align: center;
+    background: #fff;
+}
+.outer_course_icon {
+    height: 270px;
+}
+.course_icon {
+
+}
+/*=========Courses section ends here========*/
+
+.contact-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #eee;
+}
