@@ -14,32 +14,45 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/signup.css" rel="stylesheet">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
 </head>
 <body>
-    <div class="container" style="text-align: center;">
+    <div class="container form_border">
     <h1>Create an Account</h1>
-    <h3>InterviewDream account opens a new world of opportunities.</h3>
-    <form>
-        <div class="form-group">
-            <input type="text" name="name" placeholder="Enter Your Name" />
-        </div>
-        <div class="form-group">
-            <input type="email" name="email" placeholder="abc@example.com" />
-        </div>
-        <div class="form-group">
-            <input type="password" name="password" placeholder="Create password" />
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Create Account</button>
-        </div>
-    </form>
+    <br/>
+    <h4>InterviewDream account opens a new world of opportunities.</h4>
+    <br/>
+    <div class="row">
+    <div class="col-lg-6" style="border-right: 2px solid gray;">
+        <form>
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Enter Your Name" />
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="abc@example.com" />
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Create password" />
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2"><span>Male</span></div>
+                <div class="col-lg-2"><input type="radio" name="gender" /></div>
+                <div class="col-lg-2"><span>Female</span></div>
+                <div class="col-lg-2"><input type="radio" name="gender" /></div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </div>
+        </form>
     </div>
-
+    <div class="col-lg-2"></div>
+    <div class="col-lg-5" style="padding-left: 50px;"><h2>Just Sign with:</h2>
+        <div class="row"><p><button class="btn btn-primary btn_social">Facebook</button></p></div>
+        <div class="row"><p><button class="btn btn-warning btn_social">Google</button></p></div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
