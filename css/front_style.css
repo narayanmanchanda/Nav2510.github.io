@@ -122,9 +122,50 @@ html {
 /*=========Online test platform section starts here====*/
 .test_platform_section {
 
-    height: 100%;
-    padding-top: 150px;
+    height: 70%;
+    padding-top: 50px;
     text-align: center;
     background: #aaa;
+}
+#students_giving_exam_tablet {
+    width: 100%;
+    height: auto;
+}
+.test_discription {
+    text-align: left;
+    color: rgba(0, 0, 0, 0.8);
+    padding-left: 30px;
+}
+#test_discription_inner {
+    padding-left: 40px;
+    padding-top: 20px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    font-size: 19px;
+    max-width: 650px;
+    max-height: 400px;
+}
+.test_ribbon {
+    background: #222;
+    color: #3cc47c;
+}
+.test_ribbon_inner {
+    height: 150px;
+    vertical-align: central;
+    padding: 38px 60px 38px 60px;
+}
+#test_ribbon_col1 {
+    text-align: center;
+}
+#test_ribbon_col2 {
+    text-align: center;
+    color: #3cc47c;
+    text-decoration: none;
+}
+#border_checknow {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #3cc47c;
+    border-radius: 5px;
 }
 /*========test platform ends here===========*/
