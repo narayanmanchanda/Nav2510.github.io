@@ -1,3 +1,20 @@
+<?php
+include("conn.php");
+extract($_POST);
+if(isset($submit))
+{
+    $gen = $gender;
+$query = "INSERT into sign_up(name,email,pass,gender) VALUES('$name','$email','$password','$gen')";
+$result =mysql_query($query) or die("insertion error".mysql_error());
+if($result)
+{
+    echo '<script>alert(" Registered ");</script>';
+}
+else
+    echo '<script>alert("Registration Failed");</script>';
+//header("Location:signup.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>InterviewDream-SignUp</title>
+    <title>!nterV!ewdream-SignUp</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +45,7 @@
     <br/>
     <div class="row">
     <div class="col-lg-6" style="border-right: 2px solid gray;">
-        <form>
+        <form action="signup.php" method="POST">
             <div class="form-group">
                 <input type="text" name="name" placeholder="Enter Your Name" />
             </div>
@@ -40,29 +57,19 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-2"><span>Male</span></div>
-                <div class="col-lg-2"><input type="radio" name="gender" /></div>
+                <div class="col-lg-2"><input type="radio" name="gender" value="Male" checked="checked" /></div>
                 <div class="col-lg-2"><span>Female</span></div>
-                <div class="col-lg-2"><input type="radio" name="gender" /></div>
+                <div class="col-lg-2"><input type="radio" name="gender" value="Female" /></div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create Account</button>
+                <button type="submit" name = "submit" class="btn btn-primary">Create Account</button>
             </div>
         </form>
     </div>
     <div class="col-lg-2"></div>
-    <div class="col-lg-5 alternate">
-        <div class="row" style="padding-bottom: 20px; "><span style="font-size: 21px;">Save your time by Signing In with:<span></div>
-        <div class="row">
-            <div class="col-lg-2" style="margin-right: 30px;"><button class="btn btn-primary btn_social">Facebook</button></div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-2"><button class="btn btn-warning btn_social">Google</button></div>
-        </div>
-        <br>
-        <br>
-        <div class="row">Already have an account? <a href="index.html#mymodal">Click Here</a></div>
-    </div>
-
-
+    <div class="col-lg-5" style="padding-left: 50px;"><h2>Just Sign with:</h2>
+        <div class="row"><p><button class="btn btn-primary btn_social">Facebook</button></p></div>
+        <div class="row"><p><button class="btn btn-warning btn_social">Google</button></p></div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
