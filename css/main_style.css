@@ -1,9 +1,13 @@
 .navigation_panel {
-    border:  1px solid red;
+
+    border-right: 2px solid grey;
 }
 .main_section {
-    border:  1px solid blue;
+    /*border:  1px solid blue;*/
 }
 .footer {
+    height: 200px;
+    background-color: #333333;
+    color: #999999;
     text-align: center;
 }

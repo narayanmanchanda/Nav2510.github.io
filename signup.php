@@ -4,7 +4,8 @@ extract($_POST);
 if(isset($submit))
 {
     $gen = $gender;
-$query = "INSERT into sign_up(name,email,pass,gender) VALUES('$name','$email','$password','$gen')";
+    $passs=sha1($password);
+    $query = "INSERT into sign_up(name,email,pass,gender) VALUES('$name','$email','$passs','$gen')";
 $result =mysql_query($query) or die("insertion error".mysql_error());
 if($result)
 {
@@ -67,9 +68,28 @@ else
         </form>
     </div>
     <div class="col-lg-2"></div>
-    <div class="col-lg-5" style="padding-left: 50px;"><h2>Just Sign with:</h2>
-        <div class="row"><p><button class="btn btn-primary btn_social">Facebook</button></p></div>
-        <div class="row"><p><button class="btn btn-warning btn_social">Google</button></p></div>
+    <div class="col-lg-5 alternate">
+        <div class="row" style="padding-bottom: 20px; ">
+            <span style="font-size: 21px;">
+                Save your time by Signing In with:
+            <span>
+        </div>
+        <div class="row">
+            <div class="col-lg-2" style="margin-right: 30px;">
+                <button class="btn btn-primary btn_social">Facebook</button>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-2">
+                <button class="btn btn-warning btn_social">Google</button>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            Already have an account?
+            <a href="index.html#mymodal">Click Here</a>
+        </div>
+    </div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 

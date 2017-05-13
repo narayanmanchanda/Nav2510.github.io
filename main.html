@@ -44,7 +44,7 @@
             <li><a href="#">Online Test</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
+            <li><a href="login1">Login</a></li>
         </ul>
     </div>
 </nav>
@@ -54,22 +54,22 @@
     <!-- -->
     <div class="row">
         <div class="col-lg-3 navigation_panel">
-            <h3>Navigation Panel</h3>
+            <h3 style="color: ">Course Panel</h3>
             <ul>
-                <li>option</li>
+                <li><a href="#" style="display: block;" onclick="fun">Engineering</a></li>
                     <ul>
-                        <li>sub-option</li>
-                        <li>sub-option</li>
+                        <li><a href="#">Computer Science</a></li>
+                        <li><a href="#">Electrical</a></li>
                     </ul>
-                <li>option</li>
+                <li>Aptitude</li>
                     <ul>
-                        <li>sub-option</li>
-                        <li>sub-option</li>
+                        <li><a href="#">Logical and Reasoning</a></li>
+                        <li><a href="#">Probablity</a></li>
                     </ul>
-                <li>option</li>
+                <li>Interview</li>
                     <ul>
-                        <li>sub-option</li>
-                        <li>sub-option</li>
+                        <li><a href="#">General Asked Questions</a></li>
+                        <li><a href="#">FAQs</a></li>
                     </ul>
             </ul>
         </div>
@@ -85,6 +85,47 @@
     <!--Footer section ends here-->
 </div>
 
+<!--Login modal-->
+    <div class = "modal fade" id = "mymodal1" role= "dialog">
+    <div class = "modal-dialog">
+        <div class = " modal-content">
+            <div class = "modal-header">
+                <button class= " close" data-dismiss="modal">&times;</button>
+                <h3 style="color:white"><span class = "glyphicon glyphicon-lock"></span> LOGIN </h3>
+            </div>
+            <div class= "modal-body">
+                <form data-toggle="validator" role= "form" id="loginform">
+                    <div class="form-group">
+                        <label for="usrname" class="control-label" ><span class="glyphicon glyphicon-user">EMAIL</span></label>
+                        <div class="form-inline row">
+                        <div class="form-group col-sm-6">
+                        <input name="user" type="email" id="usrname" class="form-control" placeholder="Enter email" data-error="Invalid email address" required>
+
+                    </div>
+                    </div>
+                     <div class="form-group">
+                    <label for="Password" class="control-label"><span class="glyphicon glyphicon-eye-open"></span>  Password</label>
+                     <div class="form-inline row">
+                      <div class="form-group col-sm-6">
+                      <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+
+                     </div>
+                    <div  class= "checkbox">
+                        <label><input type="checkbox" value=" " checked> Remember me</label>
+                    </div>
+                    <button type="button" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off">  LOGIN</span></button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-danger pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> CLOSE</button>
+                <p><a href="#">Not a member?</a></p>
+                <p><a href="#">Forgot password?</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Login modal ends here-->
+
    <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -93,7 +134,16 @@
 
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
-    <script src="js/front.js"></script>
+    <script src="js/main.js"></script>
 
+    <!-- Script for the login modal-->
+    <script>
+    $(document).ready(function(){
+        $("#login1").click(function(){
+            $("#mymodal1").modal();
+        });
+    });
+    </script>
+    <!--ends-->
 </body>
 </html>
