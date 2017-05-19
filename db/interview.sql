@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2017 at 07:23 PM
+-- Generation Time: May 19, 2017 at 08:32 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 */SET NAMES utf8;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `interview`
@@ -83,7 +83,9 @@ CREATE TABLE `sign_up` (
 
 INSERT INTO `sign_up` (`name`, `email`, `pass`, `gender`) VALUES
 ('Nav', 'djkdh@gmail.com', 'asdfgh', 'Male'),
-('mishika', 'aaaa@gmail.com', 'aa', 'Female');
+('mishika', 'aaaa@gmail.com', 'aa', 'Female'),
+('sdfdz', 'xvxcvcx@sds.vbv', 'vxbvvxc', 'Male'),
+('ji', 'ji@a.c', 'as', 'Male');
 
 -- --------------------------------------------------------
 
@@ -103,7 +105,8 @@ CREATE TABLE `teacher_signup` (
 
 INSERT INTO `teacher_signup` (`name`, `pass`, `email`) VALUES
 ('zcn znc ', 'sdkjnsj', 'cmxb@ndn.ndj'),
-('ds cs dcn', 'cjsdnckjs', 'jscx@bsjd.csnk');
+('ds cs dcn', 'cjsdnckjs', 'jscx@bsjd.csnk'),
+('sdfds', 'sdfsdf', 'sdfnk@dsknL.vsdm');
 
 -- --------------------------------------------------------
 

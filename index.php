@@ -101,7 +101,7 @@
                     <h1>InterviewDream</h1>
                     <h4>Practice soft skill and have the knowledge and confidence to land your dream job more easily.</h4>
                     <p></p>
-                    <a href="signup.html" style="color : white;"><div id="banner_login_btn">Sign Up </div></a>
+                    <a href="signup.php" style="color : white;"><div id="banner_login_btn">Sign Up </div></a>
                 </div>
                     <a href="#about" class="page-scroll"><div id="more_button">More<br><span style="margin-left: 5px;" class="glyphicon glyphicon-chevron-down"></span></div></a>
             </div>
@@ -243,14 +243,14 @@
     <!-- Footer ends here -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="script/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
 
     <!-- Scrolling Nav JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/scrolling-nav.js"></script>
+    <script src="script/jquery.easing.min.js"></script>
+    <script src="script/scrolling-nav.js"></script>
 
     <!-- Script for the login modal-->
     <script>

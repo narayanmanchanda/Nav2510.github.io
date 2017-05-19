@@ -7,12 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" media="all" href="css/main_style.css">
-
     <title>InterviewDream-Main</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap-select CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
 
     <!-- Custom CSS -->
     <link href="css/main_style.css" rel="stylesheet">
@@ -20,61 +22,115 @@
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-</head>
-<body>
-<!--navbar -->
-<nav role="navigation" class="navbar navbar-default">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a href="index.html" class="navbar-brand">InterviewDream</a>
-    </div>
-    <!-- Collection of nav links and other content for toggling -->
-    <div id="navbarCollapse" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Engineering</a></li>
-            <li><a href="#">Aptitude</a></li>
-            <li><a href="#">Interview</a></li>
-            <li><a href="#">Online Test</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="login1">Login</a></li>
-        </ul>
-    </div>
-</nav>
-<!-- /navbar -->
+    <!-- Angular Javascript -->
+    <script type="text/javascript" src="script/angular.min.js"></script>
 
-<div class="container" style="border: 1px solid green;">
-    <!-- -->
-    <div class="row">
-        <div class="col-lg-3 navigation_panel">
-            <h3 style="color: ">Course Panel</h3>
-            <ul>
-                <li><a href="#" style="display: block;" onclick="fun">Engineering</a></li>
-                    <ul>
-                        <li><a href="#">Computer Science</a></li>
-                        <li><a href="#">Electrical</a></li>
-                    </ul>
-                <li>Aptitude</li>
-                    <ul>
-                        <li><a href="#">Logical and Reasoning</a></li>
-                        <li><a href="#">Probablity</a></li>
-                    </ul>
-                <li>Interview</li>
-                    <ul>
-                        <li><a href="#">General Asked Questions</a></li>
-                        <li><a href="#">FAQs</a></li>
-                    </ul>
+    <!-- Main JavaScript -->
+    <script src="script/main.js"></script>
+
+</head>
+<body ng-app="myModule">
+<div ng-controller="myController">
+    <!--navbar -->
+    <nav role="navigation" class="navbar navbar-default">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="  navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.php" class="navbar-brand">InterviewDream</a>
+        </div>
+        <!-- Collection of nav links and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Engineering</a></li>
+                <li><a href="#">Aptitude</a></li>
+                <li><a href="#">Interview</a></li>
+                <li><a href="#">Online Test</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="login1">Login</a></li>
             </ul>
         </div>
-        <div class="col-lg-9 main_section">
-            <h3>Main section</h3>
+    </nav>
+    <!-- /navbar -->
+
+    <div class="container" style="border: 1px solid blue;">
+        <!-- -->
+        <div class="row">
+            <div class="col-lg-3 navigation_panel">
+                <h3 style="color: ">Course Panel</h3>
+                <ul>
+                    <li><a data-toggle="collapse" data-target="#nav_panel_engineering" style="display: block;">Engineering</a></li>
+                        <ul id="nav_panel_engineering" class="collapse">
+                            <li ><a href="#">Computer Science</a></li>
+                            <li ><a href="#">Electrical</a></li>
+                        </ul>
+                    <li><a href="#" data-toggle="collapse" data-target="#nav_panel_aptitude" style="display: block;">Aptitude</a></li>
+                        <ul id="nav_panel_aptitude" class="collapse">
+                            <li><a href="#">Logical and Reasoning</a></li>
+                            <li><a href="#">Probablity</a></li>
+                        </ul>
+                    <li><a href="#" data-toggle="collapse" data-target="#nav_panel_interview" style="display: block;">Interview</a></li>
+                        <ul id="nav_panel_interview" class="collapse">
+                            <li><a href="#">General Asked Questions</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                </ul>
+            </div>
+            <div class="col-lg-9 main_section" style="border:1px solid red;">
+            <!--       breadcrumb starts here     -->
+                <ol class="breadcrumb">
+                    <li ng-repeat="livalue in list">
+                        <a href="#">{{livalue}}</a>
+                    </li>
+                    <!--<li class="active"><span>Sample Questions</span></li>-->
+                </ol>
+            <!--      breadcrumb ending here     -->
+
+                <div style="border:3px solid green;">
+                    <h3>Refine your Questions selection here....</h3>
+                    <hr>
+                    <select class="selectpicker"
+                            data-live-search="true"
+                            multiple title="Choose one or more Topic"
+                            ng-model="questionsTopic"
+                            ng-options="option.name as option.value group by option.type for option in topics" ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
+                    </select>
+                    <select class="selectpicker"
+                            multiple title="Company"
+                            ng-model="questionsCompany"
+                            ng-options="option.name as option.value for option in companies"
+                            ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
+                    </select>
+                    <select class="selectpicker"
+                            multiple title="Year"
+                            ng-model="questionsYear"
+                            ng-options="option.name as option.value for option in years"
+                            ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
+                    </select>
+                    <hr>
+                </div>
+                <div ng-repeat="question in questions">
+                    <div style="border:1px solid red;">
+                        <h4> {{question.discription}}</h4>
+                        <pre>{{question.code}}</pre>
+                        <ol type="A">
+                            <li>{{question.options.a}}</li>
+                            <li>{{question.options.b}}</li>
+                            <li>{{question.options.c}}</li>
+                            <li>{{question.options.d}}</li>
+                        </ol>
+                        <button class="btn btn-success" id="btn_checkAnswer">Check Answer</button>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 400px;width: auto; border:2px solid yellow"></div>
         </div>
     </div>
     <!-- -->
@@ -83,58 +139,68 @@
         <h1>Footer Section</h1>
     </div>
     <!--Footer section ends here-->
-</div>
 
-<!--Login modal-->
+    <!--Login modal-->
     <div class = "modal fade" id = "mymodal1" role= "dialog">
-    <div class = "modal-dialog">
-        <div class = " modal-content">
-            <div class = "modal-header">
-                <button class= " close" data-dismiss="modal">&times;</button>
-                <h3 style="color:white"><span class = "glyphicon glyphicon-lock"></span> LOGIN </h3>
-            </div>
-            <div class= "modal-body">
-                <form data-toggle="validator" role= "form" id="loginform">
-                    <div class="form-group">
-                        <label for="usrname" class="control-label" ><span class="glyphicon glyphicon-user">EMAIL</span></label>
-                        <div class="form-inline row">
-                        <div class="form-group col-sm-6">
-                        <input name="user" type="email" id="usrname" class="form-control" placeholder="Enter email" data-error="Invalid email address" required>
-
-                    </div>
-                    </div>
-                     <div class="form-group">
-                    <label for="Password" class="control-label"><span class="glyphicon glyphicon-eye-open"></span>  Password</label>
-                     <div class="form-inline row">
-                      <div class="form-group col-sm-6">
-                      <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
-
-                     </div>
-                    <div  class= "checkbox">
-                        <label><input type="checkbox" value=" " checked> Remember me</label>
-                    </div>
-                    <button type="button" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off">  LOGIN</span></button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-danger pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> CLOSE</button>
-                <p><a href="#">Not a member?</a></p>
-                <p><a href="#">Forgot password?</a></p>
+        <div class = "modal-dialog">
+            <div class = " modal-content">
+                <div class = "modal-header">
+                    <button class= " close" data-dismiss="modal">&times;</button>
+                    <h3 style="color:white"><span class = "glyphicon glyphicon-lock"></span> LOGIN </h3>
+                </div>
+                <div class= "modal-body">
+                    <form data-toggle="validator" role= "form" id="loginform">
+                        <div class="form-group">
+                            <label for="usrname" class="control-label" ><span class="glyphicon glyphicon-user">EMAIL</span></label>
+                            <div class="form-inline row">
+                                <div class="form-group col-sm-6">
+                                    <input name="user" type="email" id="usrname" class="form-control" placeholder="Enter email" data-error="Invalid email address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="control-label">
+                                <span class="glyphicon glyphicon-eye-open"></span>  Password
+                            </label>
+                            <div class="form-inline row">
+                                <div class="form-group col-sm-6">
+                                    <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+                                </div>
+                            </div>
+                            <div  class= "checkbox">
+                                <label>
+                                    <input type="checkbox" value=" " checked> Remember me
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-default btn-success btn-block">
+                                <span class="glyphicon glyphicon-off">  LOGIN</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-danger pull-left" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> CLOSE
+                    </button>
+                    <p><a href="#">Not a member?</a></p>
+                <!--<p><a href="#">Forgot password?</a></p>-->
+                </div>
             </div>
         </div>
     </div>
-</div>
     <!-- Login modal ends here-->
-
+</div>
    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="script/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+
+    <!-- Bootstrap-select JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
     <!-- Scrolling Nav JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="script/jquery.easing.min.js"></script>
 
     <!-- Script for the login modal-->
     <script>
