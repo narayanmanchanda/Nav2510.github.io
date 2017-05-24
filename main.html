@@ -66,6 +66,56 @@
     </nav>
     <!-- /navbar -->
 
+    <!--Login modal-->
+    <div class = "modal fade" id = "mymodal1" role= "dialog">
+        <div class = "modal-dialog">
+            <div class = " modal-content">
+                <div class = "modal-header">
+                    <button class= " close" data-dismiss="modal">&times;</button>
+                    <h3 style="color:white"><span class = "glyphicon glyphicon-lock"></span> LOGIN </h3>
+                </div>
+                <div class= "modal-body">
+                    <form data-toggle="validator" role= "form" id="loginform">
+                        <div class="form-group">
+                            <label for="usrname" class="control-label" ><span class="glyphicon glyphicon-user">EMAIL</span></label>
+                            <div class="form-inline row">
+                                <div class="form-group col-sm-6">
+                                    <input name="user" type="email" id="usrname" class="form-control" placeholder="Enter email" data-error="Invalid email address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="control-label">
+                                <span class="glyphicon glyphicon-eye-open"></span>  Password
+                            </label>
+                            <div class="form-inline row">
+                                <div class="form-group col-sm-6">
+                                    <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+                                </div>
+                            </div>
+                            <div  class= "checkbox">
+                                <label>
+                                    <input type="checkbox" value=" " checked> Remember me
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-default btn-success btn-block">
+                                <span class="glyphicon glyphicon-off">  LOGIN</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-danger pull-left" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> CLOSE
+                    </button>
+                    <p><a href="#">Not a member?</a></p>
+                <!--<p><a href="#">Forgot password?</a></p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Login modal ends here-->
+
     <div class="container">
         <!-- -->
         <div class="row">
@@ -77,10 +127,10 @@
                             <li><a href="#" data-toggle="collapse" data-target="#nav_panel_computer_science" style="display: block; margin-top: 15px;">Computer Science</a></li>
                                 <ul id="nav_panel_computer_science" class="collapse">
                                     <li><a id="nav_panel_c_programming" on href="#" onclick="initiateTest('C')">C programming</a></li>
-                                    <li><a href="#" onclick="initiateTest('Cplusplus')">C++ programming</a></li>
-                                    <li><a href="#" onclick="initiateTest('Javascript')">Javascript programming</a></li>
-                                    <li><a href="#" onclick="initiateTest('Database')">Database programming</a></li>
-                                    <li><a href="#" onclick="initiateTest('HTML')">HTML programming</a></li>
+                                    <li><a id="nav_panel_cplusplus_programming" href="#" onclick="initiateTest('Cplusplus')">C++ programming</a></li>
+                                    <li><a id="nav_panel_javascript_programming"  href="#" onclick="initiateTest('Javascript')">Javascript programming</a></li>
+                                    <li><a id="nav_panel_database_programming" href="#" onclick="initiateTest('Database')">Database programming</a></li>
+                                    <li><a id="nav_panel_html_programming" href="#" onclick="initiateTest('HTML')">HTML programming</a></li>
                                 </ul>
                             <li ><a href="#" class="disabled">Electrical</a></li>
                         </ul>
@@ -183,99 +233,130 @@
                 </div>
                 <!-- question section ends here -->
                 <!-- Instruction section starts here -->
-            <div  ng-modules="myTestModule" ng-controller="myTestController" >
-                <div id="instruction-section" style="display: none;">
-                    <div id="instruction-section-title" class="dark-primary-color text-primary-color">Online Test :&nbsp;<span id="instruction-section-title-text"></span>
-                    </div>
-                    <div class="default-primary-color">
-                        <div class="instruction-section-header">Instruction:</div>
-                        <div class="instruction-section-text">
-                            <ul>
-                                <li>Total number of questions : 10</li>
-                                <li>Time alloted : 20 min</li>
-                                <li>Do not refresh the page</li>
-                            </ul>
+                <div  ng-modules="myTestModule" ng-controller="myTestController">
+                    <div id="instruction-section" style="display: none;">
+                        <div id="instruction-section-title" class="dark-primary-color text-primary-color">Online Test :&nbsp;<span id="instruction-section-title-text"></span>
                         </div>
-                        <div class="instruction-section-header">Marking schemes:</div>
-                        <div class="instruction-section-text">
-                            <ul>
-                                <li>Each question carry 1 mark.</li>
-                                <li>No marks for the unattempted questions.</li>
-                                <li>There in no negative marking.</li>
-                            </ul>
-                        </div>
-                        <div id="instruction-button-row" class="row">
-                            <div class="col-xs-5"></div>
-                            <div class="col-xs-2">
-                                <a ng-click="angular_startTest()">
-                                    <div id="instruction-button" class="accent-color text-primary-color">Start Test</div>
-                                </a>
+                        <div class="default-primary-color">
+                            <div class="instruction-section-header">Instruction:</div>
+                            <div class="instruction-section-text">
+                                <ul>
+                                    <li>Total number of questions : 10</li>
+                                    <li>Time alloted : 20 min</li>
+                                    <li>Do not refresh the page</li>
+                                </ul>
                             </div>
-                            <div class="col-xs-5"></div>
+                            <div class="instruction-section-header">Marking schemes:</div>
+                            <div class="instruction-section-text">
+                                <ul>
+                                    <li>Each question carry 1 mark.</li>
+                                    <li>No marks for the unattempted questions.</li>
+                                    <li>There in no negative marking.</li>
+                                </ul>
+                            </div>
+                            <div id="instruction-button-row" class="row">
+                                <div class="col-xs-5"></div>
+                                <div class="col-xs-2">
+                                    <a ng-click="angular_startTest()">
+                                        <div id="instruction-button" class="accent-color text-primary-color">Start Test</div>
+                                    </a>
+                                </div>
+                                <div class="col-xs-5"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Instruction section ends here -->
+                    <!-- Instruction section ends here -->
 
-                <!-- Test section starts here -->
-                <div id="test-section" style="display: none;">
-                    <div id="test-section-title" class="test-dark-primary-color test-text-primary-color">Online Test :&nbsp;<span id="test-section-title-text"></span>
-                    </div>
-                    <div class="test-default-primary-color">
-                        <div ng-repeat="question in questions">
-                            <div class="test-section-header">{{question.discription}}</div>
-                            <div class="row">
-                                <div class="col-xs-1"></div>
-                                <div class="col-xs-11">
-                                    <pre style="border: none;background: #3F51B5; color: #FFFFFF ">{{question.code}}</pre>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-1 test-section-text">
-                                    <input class="question_radio" type="radio" name="{{question.radio}}"></div>
-                                <div class="col-xs-11 test-section-text" id="a{{question.radio}}">
-                                    A.&nbsp;&nbsp;{{question.options.a}}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-1 test-section-text">
-                                    <input class="question_radio" type="radio" name="{{question.radio}}"></div>
-                                <div class="col-xs-11 test-section-text" id="b{{question.radio}}">
-                                    B.&nbsp;&nbsp;{{question.options.b}}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-1 test-section-text">
-                                    <input class="question_radio" type="radio" name="{{question.radio}}"></div>
-                                <div class="col-xs-11 test-section-text" id="c{{question.radio}}">
-                                    C.&nbsp;&nbsp;{{question.options.c}}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-1 test-section-text">
-                                    <input class="question_radio" type="radio" name="{{question.radio}}"></div>
-                                <div class="col-xs-11 test-section-text" id="d{{question.radio}}">
-                                    D.&nbsp;&nbsp;{{question.options.d}}
-                                </div>
-                                <div style="height: 10vh;"></div>
-                            </div>
-                            <hr>
+                    <!-- Test section starts here -->
+                    <div id="test-section" style="display: none;">
+                        <div id="test-section-title" class="test-dark-primary-color test-text-primary-color">Online Test :&nbsp;<span id="test-section-title-text"></span>
                         </div>
-                        <!--Submit button row starts here-->
-                        <div id="test-button-row" class="row">
-                            <div class="col-xs-5"></div>
-                            <div class="col-xs-2">
-                                <a href="#">
-                                    <div id="test-button" class="test-accent-color test-text-primary-color">Submit</div>
-                                </a>
+                        <div class="test-default-primary-color">
+                            <div ng-repeat="question in questions">
+                                <div class="test-section-header">{{question.discription}}</div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-11">
+                                        <pre style="border: none;background: #3F51B5; color: #FFFFFF ">{{question.code}}</pre>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1 test-section-text">
+                                        <input class="question_radio" id="radio_a{{question.radio}}" type="radio" value="a" name="{{question.radio}}"></div>
+                                    <div class="col-xs-11 test-section-text" id="a{{question.radio}}" >
+                                        A.&nbsp;&nbsp;{{question.options.a}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1 test-section-text">
+                                        <input class="question_radio" id="radio_b{{question.radio}}" type="radio" name="{{question.radio}}"></div>
+                                    <div class="col-xs-11 test-section-text" id="b{{question.radio}}">
+                                        B.&nbsp;&nbsp;{{question.options.b}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1 test-section-text">
+                                        <input class="question_radio" id="radio_c{{question.radio}}" type="radio" name="{{question.radio}}"></div>
+                                    <div class="col-xs-11 test-section-text" id="c{{question.radio}}">
+                                        C.&nbsp;&nbsp;{{question.options.c}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-1 test-section-text">
+                                        <input class="question_radio" id="radio_d{{question.radio}}" type="radio" name="{{question.radio}}"></div>
+                                    <div class="col-xs-11 test-section-text" id="d{{question.radio}}">
+                                        D.&nbsp;&nbsp;{{question.options.d}}
+                                    </div>
+                                    <div style="height: 10vh;"></div>
+                                </div>
+                                <hr>
                             </div>
-                            <div class="col-xs-5"></div>
+                            <!--Submit button row starts here-->
+                            <div id="test-button-row" class="row">
+                                <div class="col-xs-5"></div>
+                                <div class="col-xs-2">
+                                    <a href="#">
+                                        <div id="test-button" onclick="submitTest()" class="test-accent-color test-text-primary-color">Submit</div>
+                                    </a>
+                                </div>
+                                <div class="col-xs-5"></div>
+                            </div>
+                            <!--Submit button row ends here-->
                         </div>
-                        <!--Submit button row ends here-->
                     </div>
+                    <!-- Test section ends here -->
+                    <!-- Result section starts here -->
+                    <div id="result-section" style="border: 1px solid red;display: none;">
+                        <div id="instruction-section-title" class="dark-primary-color text-primary-color">Online Test :&nbsp;<span id="result-section-title-text"></span>
+                        </div>
+                        <div class="default-primary-color" style="height: 230px;">
+                            <div class="instruction-section-header">Result</div>
+                            <div class="instruction-section-text" class="row">
+                                <div class="col-md-6">
+                                    <div class="row">Number Of questions Attempted:<span id="attempted-question"></span></div>
+                                    <div class="row">Number Of questions Unattempted:<span id="unattempted-question"></span></div>
+                                    <div class="row">Number Of Correct answer:<span id="correct-answer"></span></div>
+                                    <div class="row">Correct Answers are:<span id="correct-array"></span></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="percent" style="font-size: 80px"></span>
+                                </div>
+                            </div>
+                            <div id="instruction-button-row" class="row">
+                                <div class="col-xs-5"></div>
+                                <div class="col-xs-2">
+                                    <a href="main.html">
+                                        <div id="instruction-button" class="accent-color text-primary-color">Back</div>
+                                    </a>
+                                </div>
+                                <div class="col-xs-5"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Result section ends here -->
+
                 </div>
-                <!-- Test section ends here -->
-            </div>
             </div>
             <!-- Main section ends here-->
             <div style="height: 400px;width: auto;""></div>
@@ -283,65 +364,53 @@
     </div>
     <!-- -->
     <!--Footer section start here-->
-    <div style="height: 180px;"></div>
-    <div class="jumbotron footer" style="z-index: 0;">
-        <h1>Footer Section</h1>
-    </div>
-    <!--Footer section ends here-->
-
-
-
-
-    <!--Login modal-->
-    <div class = "modal fade" id = "mymodal1" role= "dialog">
-        <div class = "modal-dialog">
-            <div class = " modal-content">
-                <div class = "modal-header">
-                    <button class= " close" data-dismiss="modal">&times;</button>
-                    <h3 style="color:white"><span class = "glyphicon glyphicon-lock"></span> LOGIN </h3>
+    <div class="jumbotron footer" style="z-index: 0;" ng-modules="myModule" ng-controller="myController">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4"><h3>Important Links</h3></div>
+                    <div class="col-md-4"><h3>Online Test available</h3></div>
+                    <div class="col-md-4"><h3>Courses</h3></div>
                 </div>
-                <div class= "modal-body">
-                    <form data-toggle="validator" role= "form" id="loginform">
-                        <div class="form-group">
-                            <label for="usrname" class="control-label" ><span class="glyphicon glyphicon-user">EMAIL</span></label>
-                            <div class="form-inline row">
-                                <div class="form-group col-sm-6">
-                                    <input name="user" type="email" id="usrname" class="form-control" placeholder="Enter email" data-error="Invalid email address" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="Password" class="control-label">
-                                <span class="glyphicon glyphicon-eye-open"></span>  Password
-                            </label>
-                            <div class="form-inline row">
-                                <div class="form-group col-sm-6">
-                                    <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
-                                </div>
-                            </div>
-                            <div  class= "checkbox">
-                                <label>
-                                    <input type="checkbox" value=" " checked> Remember me
-                                </label>
-                            </div>
-                            <button type="button" class="btn btn-default btn-success btn-block">
-                                <span class="glyphicon glyphicon-off">  LOGIN</span>
-                            </button>
-                        </div>
-                    </form>
+                <div class="row">
+                    <div class="col-md-4"><a style="color: #666666;" href="index.php">Home</a></div>
+                    <div class="col-md-4"><a href="main.html#c">C</a></div>
+                    <div class="col-md-4"><a href="main.html#aptitude">Aptitude</a></div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-danger pull-left" data-dismiss="modal">
-                        <span class="glyphicon glyphicon-remove"></span> CLOSE
-                    </button>
-                    <p><a href="#">Not a member?</a></p>
-                <!--<p><a href="#">Forgot password?</a></p>-->
+                <div class="row">
+                    <div class="col-md-4"><a style="color: #666666;" href="/#courses">Courses</a></div>
+                    <div class="col-md-4"><a href="main.html#cplusplus">C++</a></div>
+                    <div class="col-md-4"><a href="main.html#interview">Interview</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><a style="color: #666666;" href="about_us.html">About Us</a></div>
+                    <div class="col-md-4"><a href="main.html#java">Java</a></div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"><a href="main.html#database">DataBase</a></div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row"><h3>Know more of Us</h3></div>
+                <div class="row">
+                    <a href="https://twitter.com/Navdeep2510" target="_blank"><img class="icon icons8-Twitter" src="{{twitter}}" width="48" height="48"></a>
+        <!-- LinkedIn icon by Icons8 -->
+<a href="https://www.linkedin.com/in/navdeep-singh-4631a9127/" target="_blank"><img class="icon icons8-LinkedIn" src="{{linkedin}}" width="48" height="48"></a>
+        <!-- GitHub icon by Icons8 -->
+<a href="https://github.com/Nav2510" target="_blank"><img class="icon icons8-GitHub" src="{{github}}" width="50" height="50"></a>
+        <!-- Google Plus icon by Icons8 -->
+<a href="https://plus.google.com/+navdeepsingh2510" target="_blank"><img class="icon icons8-Google-Plus" src="{{google}}" width="48" height="48"></a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Login modal ends here-->
-    <div id="fixedLCDContainer">Time Left:&nbsp;<span id="fixedLCD"></span></div>
+    <!--Footer section ends here-->
+    <div id="fixedLCDContainer">Time Left:&nbsp;
+        <span id="fixedLCD"></span>
+    </div>
 </div>
 
     <!-- Bootstrap Core JavaScript -->

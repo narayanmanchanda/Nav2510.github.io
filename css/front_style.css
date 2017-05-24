@@ -180,13 +180,12 @@ a:hover {
     height: auto;
 }
 @media(max-width: 1200px) {
-        display: none;
-    }
     #students_giving_exam_tablet {
         display: none;
         width: 40%;
         height: auto;
     }
+}
 .test_discription {
     text-align: left;
     color: rgba(0, 0, 0, 0.8);

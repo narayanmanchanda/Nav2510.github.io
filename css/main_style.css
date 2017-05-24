@@ -2,12 +2,6 @@
     border-left:  2px solid gray;
 
 }
-.footer {
-    height: 200px;
-    background-color: #333333;
-    color: #999999;
-    text-align: center;
-}
 #btn_checkAnswer {
     float: right !important;
 }
@@ -117,4 +111,17 @@ a:active {
     background: green;
     padding: 10px 20px 10px 30px;
     font-size: 18px;
+}
+.footer {
+    padding-top: 0px;
+    height: 150px;
+    background-color: #333333;
+    color: #999999;
+    text-align: center;
+}
+.footer a:link {
+    color: #666666 ;
+}
+.footer a:hover {
+    color:  #aaaaaa;
 }

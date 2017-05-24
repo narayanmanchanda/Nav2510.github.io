@@ -147,14 +147,14 @@ include('login.php');
     <section style="margin-top: 80px;">
         <div class="container-fluid" style="margin-top: 50px;">
             <div class="row">
-                <a href="#"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/c1.svg" /></div></a>
-                <a href="#"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/sql.svg" /></div></a>
-                <a href="#"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/c++.svg"/></div></a>
+                <a href="main.html#nav_panel_c_programming"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/c1.svg" /></div></a>
+                <a href="main.html#nav_panel_database_programming"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/sql.svg" /></div></a>
+                <a href="main.html#nav_panel_cplusplus_programming"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/c++.svg"/></div></a>
             </div>
             <div class="row">
-                <a href="#"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/js.svg"/></div></a>
-                <a href="#"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/html.svg"/></div></a>
-                <a href="#"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/java.svg"/></div></a>
+                <a href="main.html#nav_panel_javascript_programming"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/js.svg"/></div></a>
+                <a href="main.html#nav_panel_html_programming"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/html.svg"/></div></a>
+                <a href="main.html#nav_panel_java_programming"><div class="col-lg-4 outer_course_icon"><img class="course_icon" src="img/icons/java.svg"/></div></a>
             </div>
 
         </div>
@@ -237,13 +237,13 @@ include('login.php');
                     <div  class= "checkbox">
                         <label><input type="checkbox" value=" " checked> Remember me</label>
                     </div>
+
                     <button type="submit" class="btn btn-default btn-success btn-block" name="log"><span class="glyphicon glyphicon-off">LOGIN</span></button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-danger pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> CLOSE</button>
-                <p><a href="#">Not a member?</a></p>
-                <p><a href="#">Forgot password?</a></p>
+                <p><a href="signup.php">Not a member?</a></p>
             </div>
         </div>
     </div>
