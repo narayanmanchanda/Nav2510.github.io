@@ -4,8 +4,8 @@ extract($_POST);
 $us = $_REQUEST["q"];
 $s = 777;
 $query = "SELECT * from sign_up";
-$result = mysql_query($query) or die ("invalid ".mysql_error());
-    while($row = mysql_fetch_array($result))
+$result = mysqli_query($con,$query) or die ("invalid ".mysql_error());
+    while($row = mysqli_fetch_array($result,MYSQLI_BOTH))
     {
         if($us == $row['email'])
         {

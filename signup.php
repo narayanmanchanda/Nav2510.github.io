@@ -5,7 +5,7 @@ if(isset($submit))
 {
     $gen = $gender;
     $query = "INSERT into sign_up(name,email,pass,gender) VALUES('$name','$email','$password','$gen')";
-$result =mysql_query($query) or die("insertion error".mysql_error());
+$result =mysqli_query($con,$query) or die("insertion error".mysql_error());
 if($result)
 {
     echo '<script>alert(" Registered ");</script>';

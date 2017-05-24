@@ -13,8 +13,8 @@ if(isset($log))
     {
         include("conn.php");
         $query = "SELECT * from sign_up where email='$user'and pass='$password' ";
-        $result = mysql_query($query) or die ("invalid ".mysql_error());
-        $rows = mysql_num_rows($result);
+        $result = mysqli_query($con,$query) or die ("invalid ".mysql_error());
+        $rows = mysqli_num_rows($result);
         if($rows == 1)
         {
             $_SESSION['login_user'] = $user;
@@ -25,7 +25,7 @@ if(isset($log))
             $error = "Password incorrect";
             echo "<script>alert('Wrong password');</script>";
         }
-        mysql_close($con);
+        mysqli_close($con);
     }
 }
 ?>

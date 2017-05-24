@@ -1,12 +1,9 @@
 <?php
+$con = mysqli_connect("localhost","root","","interview");
 
-$con=mysql_connect("localhost","root","");
-if($con)
-{
-    $db=mysql_select_db("interview",$con);
-        if(!$db)
-        {
-            echo "database connection failed";
-        }
-}
+// Check connection
+    if (mysqli_connect_errno())
+    {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
 ?>
