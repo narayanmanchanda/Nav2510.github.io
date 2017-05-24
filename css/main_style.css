@@ -1,9 +1,6 @@
-.navigation_panel {
+.main-section {
+    border-left:  2px solid gray;
 
-    border-right: 2px solid grey;
-}
-.main_section {
-    /*border:  1px solid blue;*/
 }
 .footer {
     height: 200px;
@@ -13,4 +10,111 @@
 }
 #btn_checkAnswer {
     float: right !important;
+}
+.question_radio {
+    float: right !important;
+}
+.outerPanel {
+    margin-top: 10px !important;
+}
+a.disabled {
+  /* Make the disabled links grayish*/
+  color: gray;
+  /* And disable the pointer events */
+  pointer-events: none;
+}
+#instruction-section-title {
+    font-size: 20px;
+    padding: 10px 0px 10px 20px;
+}
+.instruction-section-header {
+    font-size: 18px;
+    padding: 10px 0px 10px 30px;
+    color: #FFFFFF;
+}
+.instruction-section-text {
+    color: #ffeded;
+    padding: 2px 0px 5px 40px;
+}
+#instruction-button-row {
+    padding: 10px 0px 10px 20px;
+}
+#instruction-button {
+    border-radius: 3px;
+    font-size: 18px;
+    border: 1px #4CAF50;
+    text-align: center;
+    padding: 9px 0px 7px 0px;
+}
+#instruction-button:hover {
+    text-decoration: none;
+    color: #dddddd;
+    background: #3b9d40;
+}
+a:hover {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration:  none;
+}
+a:active {
+    text-decoration: none;
+}
+.dark-primary-color     { background: #1976D2; }
+.default-primary-color  { background: #2196F3; }
+.light-primary-color    { background: #BBDEFB; }
+.accent-color           { background: #4CAF50; }
+.divider-color          { border-color: #BDBDBD; }
+.primary-text-color     { color: #212121; }
+.secondary-text-color   { color: #757575; }
+.text-primary-color     { color: #FFFFFF; }
+
+
+#test-section-title {
+    font-size: 20px;
+    padding: 10px 0px 10px 20px;
+}
+.test-section-header {
+    font-size: 18px;
+    padding: 10px 0px 10px 30px;
+    color: #FFFFFF;
+}
+.test-section-text {
+    color: #ffeded;
+    padding: 2px 0px 5px 20px;
+}
+#test-button-row {
+    padding: 10px 0px 10px 20px;
+}
+#test-button {
+    border-radius: 3px;
+    font-size: 18px;
+    border: 1px #4CAF50;
+    text-align: center;
+    padding: 9px 0px 7px 0px;
+}
+#test-button:hover {
+    text-decoration: none;
+    color: #dddddd;
+    background: #3b9d40;
+}
+.test-dark-primary-color    { background: #303F9F; }
+.test-default-primary-color { background: #3F51B5; }
+.test-light-primary-color   { background: #C5CAE9; }
+.test-text-primary-color    { color: #FFFFFF; }
+.test-accent-color          { background: #4CAF50; }
+.test-primary-text-color    { color: #212121; }
+.test-secondary-text-color  { color: #757575; }
+.test-divider-color         { border-color: #BDBDBD; }
+
+#fixedLCDContainer {
+    position: fixed;
+    width:230px; border:
+    2px solid green;
+    left:-50%;
+    top : 90%;
+    color: white;
+    background: green;
+    padding: 10px 20px 10px 30px;
+    font-size: 18px;
 }

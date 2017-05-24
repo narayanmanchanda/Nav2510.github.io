@@ -31,6 +31,10 @@ html {
     border: 1px solid #bbbbbb;
     float: right;
 }
+.navbar_btn a:hover {
+    background: #ffffff;
+    color: #222222;
+}
 #sign_up {
     margin-right: -5px;
 }
@@ -97,6 +101,9 @@ html {
 /*========= Banner ends here==========*/
 
 /*==========About section starts here =====*/
+a:hover {
+    text-decoration: none;
+}
 .about-section {
     color: #ee8b21;
     height: 50%;
@@ -109,13 +116,19 @@ html {
 }
 #about_heading_button {
     border-style: solid;
+    color: #ee8b21;
     text-align: center;
     border-width: 2px;
     border-color: inherit;
+    padding: 0px 0px 5px 0px;
     border-radius: 5px;
 }
 #about_heading_button:hover {
     text-decoration: none;
+    background: #ee8b21;
+    border-color: #ee8b21;
+    padding: 0px 0px 5px 0px;
+    color: #434343;
 }
 #about_discription {
     font-size: 17px;
@@ -167,7 +180,6 @@ html {
     height: auto;
 }
 @media(max-width: 1200px) {
-     {
         display: none;
     }
     #students_giving_exam_tablet {
@@ -175,7 +187,6 @@ html {
         width: 40%;
         height: auto;
     }
-}
 .test_discription {
     text-align: left;
     color: rgba(0, 0, 0, 0.8);
@@ -207,10 +218,21 @@ html {
     color: #3cc47c;
     text-decoration: none;
 }
+#test_ribbon_col2 a:link {
+    color: #3cc47c;
+}
+#test_ribbon_col2 a:hover{
+    text-decoration: none;
+    color:  #222222;
+}
 #border_checknow {
+    padding: 0px 0px 5px 0px;
     border-style: solid;
     border-width: 2px;
     border-color: #3cc47c;
     border-radius: 5px;
+}
+#border_checknow:hover{
+    background: #3cc47c;
 }
 /*========test platform ends here===========*/

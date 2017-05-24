@@ -63,19 +63,24 @@ $obj_array = array(); // array of objects fetched from the database using the ab
 while ($row = mysql_fetch_array($result)) { //this loop will fetch all the rows satisfying the criteria in the valid data-table
     //--below obj will make an obj in valid JSON format
     $obj = array(
-        'q_id' => $row[0],
-        'topic' => $row[2],
+        'q_id' => base64_encode($row[0]),
+        'topic' => base64_encode($row[2]),
         'code'=>base64_encode($row[1]),
-        'discription' =>$row[3],
+        'discription' =>base64_encode($row[3]),
         'options' => array(
             'a'=> base64_encode($row[4]),
             'b'=> base64_encode($row[5]),
             'c'=> base64_encode($row[6]),
             'd'=> base64_encode($row[7]),
-        )
+        ),
+        'ans'=> base64_encode($row['ans']),
+        'company'=> base64_encode($row['company']),
+        'year'=> base64_encode($row['year']),
+        'explanation'=> base64_encode($row['explanation'])
     );
 
     $obj_array[] = $obj; //pushing the obj in the array
+    //echo $obj['q_id'];
     //echo json_encode($obj, JSON_FORCE_OBJECT);  //CHECK ON INTERNET FOR VARIOUS OPTION
 }
 echo json_encode($obj_array);//encoding the array object in JSON string and sending it to the main.js script file

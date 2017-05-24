@@ -22,15 +22,22 @@
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="script/jquery.js"></script>
+
     <!-- Angular Javascript -->
     <script type="text/javascript" src="script/angular.min.js"></script>
+
 
     <!-- Main JavaScript -->
     <script src="script/main.js"></script>
 
+    <!-- Angular ng-module -->
+    <script type="text/javascript" src="script/angular.ng-modules.js"></script>
+
 </head>
-<body ng-app="myModule">
-<div ng-controller="myController">
+<body>
+<div>
     <!--navbar -->
     <nav role="navigation" class="navbar navbar-default">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -59,86 +66,231 @@
     </nav>
     <!-- /navbar -->
 
-    <div class="container" style="border: 1px solid blue;">
+    <div class="container">
         <!-- -->
         <div class="row">
             <div class="col-lg-3 navigation_panel">
-                <h3 style="color: ">Course Panel</h3>
+                <h3 >Test Panel</h3>
                 <ul>
-                    <li><a data-toggle="collapse" data-target="#nav_panel_engineering" style="display: block;">Engineering</a></li>
+                    <li><a href="#" data-toggle="collapse" data-target="#nav_panel_engineering" style="display: block; margin-top: 15px;">Engineering</a></li>
                         <ul id="nav_panel_engineering" class="collapse">
-                            <li ><a href="#">Computer Science</a></li>
-                            <li ><a href="#">Electrical</a></li>
+                            <li><a href="#" data-toggle="collapse" data-target="#nav_panel_computer_science" style="display: block; margin-top: 15px;">Computer Science</a></li>
+                                <ul id="nav_panel_computer_science" class="collapse">
+                                    <li><a id="nav_panel_c_programming" on href="#" onclick="initiateTest('C')">C programming</a></li>
+                                    <li><a href="#" onclick="initiateTest('Cplusplus')">C++ programming</a></li>
+                                    <li><a href="#" onclick="initiateTest('Javascript')">Javascript programming</a></li>
+                                    <li><a href="#" onclick="initiateTest('Database')">Database programming</a></li>
+                                    <li><a href="#" onclick="initiateTest('HTML')">HTML programming</a></li>
+                                </ul>
+                            <li ><a href="#" class="disabled">Electrical</a></li>
                         </ul>
-                    <li><a href="#" data-toggle="collapse" data-target="#nav_panel_aptitude" style="display: block;">Aptitude</a></li>
+                    <li><a href="#" data-toggle="collapse" data-target="#nav_panel_aptitude" style="display: block;margin-top: 15px;">Aptitude</a></li>
                         <ul id="nav_panel_aptitude" class="collapse">
-                            <li><a href="#">Logical and Reasoning</a></li>
-                            <li><a href="#">Probablity</a></li>
+                            <li><a href="#" class="disabled">Logical and Reasoning</a></li>
+                            <li><a href="#" class="disabled">Probablity</a></li>
                         </ul>
-                    <li><a href="#" data-toggle="collapse" data-target="#nav_panel_interview" style="display: block;">Interview</a></li>
+                    <li><a href="#" data-toggle="collapse" data-target="#nav_panel_interview" style="display: block; margin-top: 15px;">Interview</a></li>
                         <ul id="nav_panel_interview" class="collapse">
-                            <li><a href="#">General Asked Questions</a></li>
-                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#" class="disabled">General Asked Questions</a></li>
+                            <li><a href="#" class="disabled">FAQs</a></li>
                         </ul>
                 </ul>
             </div>
-            <div class="col-lg-9 main_section" style="border:1px solid red;">
-            <!--       breadcrumb starts here     -->
-                <ol class="breadcrumb">
-                    <li ng-repeat="livalue in list">
-                        <a href="#">{{livalue}}</a>
-                    </li>
-                    <!--<li class="active"><span>Sample Questions</span></li>-->
-                </ol>
-            <!--      breadcrumb ending here     -->
+            <!-- main section starts here-->
+            <div class="col-lg-9 main-section">
+                <!-- question_section starts here -->
 
-                <div style="border:3px solid green;">
-                    <h3>Refine your Questions selection here....</h3>
-                    <hr>
-                    <select class="selectpicker"
-                            data-live-search="true"
-                            multiple title="Choose one or more Topic"
-                            ng-model="questionsTopic"
-                            ng-options="option.name as option.value group by option.type for option in topics" ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
-                    </select>
-                    <select class="selectpicker"
-                            multiple title="Company"
-                            ng-model="questionsCompany"
-                            ng-options="option.name as option.value for option in companies"
-                            ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
-                    </select>
-                    <select class="selectpicker"
-                            multiple title="Year"
-                            ng-model="questionsYear"
-                            ng-options="option.name as option.value for option in years"
-                            ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
-                    </select>
-                    <hr>
-                </div>
-                <div ng-repeat="question in questions">
-                    <div style="border:1px solid red;">
-                        <h4> {{question.discription}}</h4>
-                        <pre>{{question.code}}</pre>
-                        <ol type="A">
-                            <li>{{question.options.a}}</li>
-                            <li>{{question.options.b}}</li>
-                            <li>{{question.options.c}}</li>
-                            <li>{{question.options.d}}</li>
-                        </ol>
-                        <button class="btn btn-success" id="btn_checkAnswer">Check Answer</button>
+                <div id="question-section" ng-modules="myModule" ng-controller="myController">
+                    <!--       breadcrumb starts here     -->
+                    <ol class="breadcrumb">
+                        <li ng-repeat="livalue in list">
+                            <a href="#">{{livalue}}</a>
+                        </li>
+                        <!--<li class="active"><span>Sample Questions</span></li>-->
+                    </ol>
+                <!--      breadcrumb ending here     -->
+                    <div>
+                        <h3>Refine your Questions selection here....</h3>
+                        <hr>
+                        <select class="selectpicker"
+                                data-live-search="true"
+                                multiple title="Choose one or more Topic"
+                                ng-model="questionsTopic"
+                                ng-options="option.name as option.value group by option.type for option in topics" ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
+                        </select>
+                        <select class="selectpicker"
+                                multiple title="Company"
+                                ng-model="questionsCompany"
+                                ng-options="option.name as option.value for option in companies"
+                                ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
+                        </select>
+                        <select class="selectpicker"
+                                multiple title="Year"
+                                ng-model="questionsYear"
+                                ng-options="option.name as option.value for option in years"
+                                ng-change="showSelectValue(questionsTopic,questionsCompany,questionsYear)">
+                        </select>
+                        <hr>
+                    </div>
+                    <div ng-repeat="question in questions">
+                        <div>
+                            <h4>{{question.discription}}</h4>
+                            <pre style="background: #FFFFFF;border: none;">{{question.code}}</pre>
+                            <div class="row">
+                                <div class="col-xs-1"><input class="question_radio" type="radio" name="{{question.radio}}"></div>
+                                <div class="col-xs-11" id="a{{question.radio}}" >
+                                    <span style="font-weight: bold; color: #328fd8;">A.</span>&nbsp;&nbsp;
+                                    {{question.options.a}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1"><input class="question_radio" type="radio" name="{{question.radio}}"></div>
+                                <div class="col-xs-11" id="b{{question.radio}}">
+                                    <span style="font-weight: bold; color: #328fd8;">B.</span>&nbsp;&nbsp;
+                                    {{question.options.b}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1"><input class="question_radio" type="radio" name="{{question.radio}}"></div>
+                                <div class="col-xs-11" id="c{{question.radio}}">
+                                    <span style="font-weight: bold; color: #328fd8;">C.</span>&nbsp;&nbsp;
+                                    {{question.options.c}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1"><input class="question_radio" type="radio" name="{{question.radio}}"></div>
+                                <div class="col-xs-11" id="d{{question.radio}}">
+                                    <span style="font-weight: bold; color: #328fd8;">D.</span>&nbsp;&nbsp;
+                                    {{question.options.d}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <div id="explanationBox{{question.radio}}" style="display: none;">
+                                    <h4><span style="color: #00af33">Explanation:</span></h4>
+                                    <p id="explanationDetail{{question.radio}}"></p>
+                                </div>
+                            </div>
+                            <div class="col-xs-3"">
+                                <button class="btn btn-success" ng-click="checkAnswer(question.radio,question.q_id)">
+                                Check Answer
+                                </button>
+                            </div>
+                        </div>
                         <hr>
                     </div>
                 </div>
+                <!-- question section ends here -->
+                <!-- Instruction section starts here -->
+            <div  ng-modules="myTestModule" ng-controller="myTestController" >
+                <div id="instruction-section" style="display: none;">
+                    <div id="instruction-section-title" class="dark-primary-color text-primary-color">Online Test :&nbsp;<span id="instruction-section-title-text"></span>
+                    </div>
+                    <div class="default-primary-color">
+                        <div class="instruction-section-header">Instruction:</div>
+                        <div class="instruction-section-text">
+                            <ul>
+                                <li>Total number of questions : 10</li>
+                                <li>Time alloted : 20 min</li>
+                                <li>Do not refresh the page</li>
+                            </ul>
+                        </div>
+                        <div class="instruction-section-header">Marking schemes:</div>
+                        <div class="instruction-section-text">
+                            <ul>
+                                <li>Each question carry 1 mark.</li>
+                                <li>No marks for the unattempted questions.</li>
+                                <li>There in no negative marking.</li>
+                            </ul>
+                        </div>
+                        <div id="instruction-button-row" class="row">
+                            <div class="col-xs-5"></div>
+                            <div class="col-xs-2">
+                                <a ng-click="angular_startTest()">
+                                    <div id="instruction-button" class="accent-color text-primary-color">Start Test</div>
+                                </a>
+                            </div>
+                            <div class="col-xs-5"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instruction section ends here -->
+
+                <!-- Test section starts here -->
+                <div id="test-section" style="display: none;">
+                    <div id="test-section-title" class="test-dark-primary-color test-text-primary-color">Online Test :&nbsp;<span id="test-section-title-text"></span>
+                    </div>
+                    <div class="test-default-primary-color">
+                        <div ng-repeat="question in questions">
+                            <div class="test-section-header">{{question.discription}}</div>
+                            <div class="row">
+                                <div class="col-xs-1"></div>
+                                <div class="col-xs-11">
+                                    <pre style="border: none;background: #3F51B5; color: #FFFFFF ">{{question.code}}</pre>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1 test-section-text">
+                                    <input class="question_radio" type="radio" name="{{question.radio}}"></div>
+                                <div class="col-xs-11 test-section-text" id="a{{question.radio}}">
+                                    A.&nbsp;&nbsp;{{question.options.a}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1 test-section-text">
+                                    <input class="question_radio" type="radio" name="{{question.radio}}"></div>
+                                <div class="col-xs-11 test-section-text" id="b{{question.radio}}">
+                                    B.&nbsp;&nbsp;{{question.options.b}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1 test-section-text">
+                                    <input class="question_radio" type="radio" name="{{question.radio}}"></div>
+                                <div class="col-xs-11 test-section-text" id="c{{question.radio}}">
+                                    C.&nbsp;&nbsp;{{question.options.c}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1 test-section-text">
+                                    <input class="question_radio" type="radio" name="{{question.radio}}"></div>
+                                <div class="col-xs-11 test-section-text" id="d{{question.radio}}">
+                                    D.&nbsp;&nbsp;{{question.options.d}}
+                                </div>
+                                <div style="height: 10vh;"></div>
+                            </div>
+                            <hr>
+                        </div>
+                        <!--Submit button row starts here-->
+                        <div id="test-button-row" class="row">
+                            <div class="col-xs-5"></div>
+                            <div class="col-xs-2">
+                                <a href="#">
+                                    <div id="test-button" class="test-accent-color test-text-primary-color">Submit</div>
+                                </a>
+                            </div>
+                            <div class="col-xs-5"></div>
+                        </div>
+                        <!--Submit button row ends here-->
+                    </div>
+                </div>
+                <!-- Test section ends here -->
             </div>
-            <div style="height: 400px;width: auto; border:2px solid yellow"></div>
+            </div>
+            <!-- Main section ends here-->
+            <div style="height: 400px;width: auto;""></div>
         </div>
     </div>
     <!-- -->
     <!--Footer section start here-->
-    <div class="jumbotron footer">
+    <div style="height: 180px;"></div>
+    <div class="jumbotron footer" style="z-index: 0;">
         <h1>Footer Section</h1>
     </div>
     <!--Footer section ends here-->
+
+
+
 
     <!--Login modal-->
     <div class = "modal fade" id = "mymodal1" role= "dialog">
@@ -189,9 +341,8 @@
         </div>
     </div>
     <!-- Login modal ends here-->
+    <div id="fixedLCDContainer">Time Left:&nbsp;<span id="fixedLCD"></span></div>
 </div>
-   <!-- jQuery -->
-    <script src="script/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="script/bootstrap.min.js"></script>

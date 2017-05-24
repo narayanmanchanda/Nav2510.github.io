@@ -4,8 +4,7 @@ extract($_POST);
 if(isset($submit))
 {
     $gen = $gender;
-    $passs=sha1($password);
-    $query = "INSERT into sign_up(name,email,pass,gender) VALUES('$name','$email','$passs','$gen')";
+    $query = "INSERT into sign_up(name,email,pass,gender) VALUES('$name','$email','$password','$gen')";
 $result =mysql_query($query) or die("insertion error".mysql_error());
 if($result)
 {
