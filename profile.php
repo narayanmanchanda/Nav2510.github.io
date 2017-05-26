@@ -8,7 +8,7 @@ $login_session = $row['name'];
 if(!isset($login_session))
 {
     mysql_close($con);
-    header('Location:index.php');
+    header('Location:main.html');
 }
 
 ?>
@@ -27,6 +27,13 @@ if(!isset($login_session))
     <!-- Custom CSS -->
     <link href="css/profile_style.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="script/jquery.js"></script>
+
+    <!-- Angular Javascript -->
+    <script type="text/javascript" src="script/angular.min.js"></script>
+
+
     <!-- Including Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -38,7 +45,7 @@ if(!isset($login_session))
     <nav class="navbar navbar-fixed-top navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">Interview Dreams</a>
+                <a class="navbar-brand" href="main.html">Interview Dreams</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -60,40 +67,27 @@ if(!isset($login_session))
                     <img id="background_img"  src="img/jpg/back.jpg" />
                     <a type="submit"><img id="profile_img" src="img/icons/profile_icon.png" /></a>
                     <div id="banner_text">
-                        <h3>Hi <i><?php echo $login_session; ?></i></h3>
-                        <p>I started web designing and development abount 2 years ago and now enjoyed doing it. I am also a good coder knowing languages like C, C++, Java, Database, AngularJs, and more.
-                        I am technically proficient and don't stop  till it's perfect.</p>
-                        <a href="#" style="color : white;">
-                            <div id="more_button">Know More <span class="glyphicon glyphicon-menu-down"></span></div>
+                        <h3>Hi</h3>
+                            <h1><i><?php echo $login_session; ?></i></h1>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Banner and profile pic ends here -->
-        <div class = "row">
-            <div class="col-sm-2" style="border: 1px solid red;">sdjf</div>
-            <div class="col-sm-4">
-                <a href="#" style="text-decoration: none; border: 1px solid gray; width: 100%;">Button1</a>
+        <div class = "jumbotron">
+            <div class="row" style="text-align: center;">
+                <div class="col-md-6">Upload your own questions</div>
+                <div class="col-md-6">
+                    <button onclick="#myModal" id="upload">Upload</button>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <a href="#" style="text-decoration: none; border: 1px solid lightgray;">Button2</a>
-            </div>
-            <div class="col-sm-2" style="border: 1px solid green;">dfghj</div>
-        </div>
-        <div class = "row" style="background-color:lightgray; padding : 1px;margin: 1px;">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><h3><small>Joined (Fetch Date)</small></h3> </div>
-            <div class="col-md-2"><h3><small> (Fetch Points) total points<small></h3></div>
-            <div class="col-md-2"><h3><small> (Fetch day Streak) day streak<small></h3></div>
-            <div class="col-md-2"><h3><small> Last coded 3 months ago<small></h3></div>
-            <div class="col-md-2"></div>
         </div>
         <div class="row" style="text-align: center";><h3>Completed Skills</h3></div>
         <div class="row" style="padding: 50px;">
             <div class="col-md-2"></div>
             <a href="#">
-                <h3 class="col-md-2">Make a Website</h3>
+                <h3 class="col-md-2">C++</h3>
                 <div class="col-md-5 progress" style="padding: 2px; margin:30px;">
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -103,12 +97,100 @@ if(!isset($login_session))
                 </div>
             </a>
         </div>
-        <div class="col-md-5"></div>
-        <div class="row">
-                <a href="#"><h3 style="text-align: center; color :black;text-decoration:none; ">Browse All Projects<h3></a>
-        </div>
     </div>
+
+    <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Questions</h4>
+      </div>
+      <div class="modal-body">
+        <form method="POST" data-toggle="validator" role="form" id="questionform" class="col-md-offset-1" action="teacherform.php">
+
+            <div class="form-group row">
+                <label for="topic" class="col-sm-2">Topic: </label>
+                <div class="form-inline row col-sm-10">
+                <select class="form-control" id = "topic" name="topic">
+                    <option value="C">C</option>
+                    <option value="Database">Database</option>
+                    <option value="Computer Network">Computer Network</option>
+                    <option value="Puzzle">Puzzle</option>
+                    <option value="Java">Java</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="discription" class=" col-sm-2">Discription: </label>
+                <div class="form-inline row col-sm-10">
+                <input type="text" name="discription" id="discription" placeholder="Your question" class="form-control" size="38" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="code" class=" col-sm-2">Code:</label>
+                <div class="form-inline row col-sm-10">
+                <textarea class="form-control" name="code" id="code" rows="9" cols="40" placeholder="Enter your Code"></textarea>
+                </div>
+            </div>
+<hr>
+            <div class="form-inline row">
+                <label for="option" class="col-sm-2">Option:</label>
+
+                    <div class="col-sm-1" style="font-weight: bold;">A</div>
+                    <input  type="text" name="a" id="a" size="6" class="form-control col-sm-2" required>
+
+                    <label for="b" class="col-sm-1">B </label>
+                    <input  type="text" name="b" id="b" size="6" class="form-control col-sm-2" required>
+
+                    <label for="c" class="col-sm-1">C </label>
+                    <input type="text" name="c" id="c" size="4" class="form-control col-sm-2" required>
+
+                    <label for="d" class="col-sm-1">D </label>
+                    <input  type="text" name="d" id="d" size="4" class="form-control col-sm-2" required>
+            </div>
+<hr>
+
+
+            <div class="form-group row">
+                <label for="ans" class="col-sm-2">Ans: </label>
+                <div class="form-inline row col-sm-10">
+                <select class="form-control" id = "ans" name="ans">
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                    <option value="d">D</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="explanation" class="col-sm-2">Explanation: </label>
+                <div class="form-inline row col-sm-10">
+                <input type="text" name="explanation" id="explanation" class="form-control" placeholder="Explanation">
+                </div>
+            </div>
+
+            <button type="Submit" class="btn btn-primary" name="Submit">Submit</button>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     <!-- Footer section -->
+
     <!-- footer starts-->
     <div class="row" style="background-color: #333333; color: #aaaaaa;">
         <div class="col-sm-6">
@@ -125,9 +207,12 @@ if(!isset($login_session))
     </p>
 </div>
 <script>
-    function uploadFunction() {
-        console.log("gagag");
-    }
+    <script>
+$(document).ready(function(){
+    $("#upload").click(function(){
+        $("#myModal").modal();
+    });
+});
 </script>
 </body>
 </html>

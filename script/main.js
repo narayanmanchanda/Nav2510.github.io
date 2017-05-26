@@ -161,6 +161,7 @@ var app1= angular
 function startTest() {
     //---First check for the login
     //testTopic = "C";
+    console.log("startTest Function called");
     console.log("startTest called"+testTopic);
     document.getElementById("instruction-section").style.display = "none";
     document.getElementById("test-section").style.display="";
@@ -171,7 +172,7 @@ function startTest() {
 }
 //
 function initiateTest(data) {
-    //console.log("initial");
+    console.log("initiateTest Function called");
     //document.getElementById("question-section").style.display = "none";
 
     //document.getElementById("test_section").style.display = "";
@@ -187,6 +188,7 @@ function initiateTest(data) {
 function startTimer() {
     setInterval(myTimer, 1000);
     var counter = 1200;
+    console.log("timer started");
 
     function myTimer() {
         var hour = Math.floor(counter/(3600));
@@ -250,6 +252,7 @@ function displayResult(attempted,unattempted,correctAnswer,correctArray) {
         document.getElementById('percent').style.color ="red";
     }
     document.getElementById('percent').innerHTML = (correctAnswer * 10)+'%';
+    document.getElementById("fixedLCDContainer").style.display="none";
 }
 //
 function check (qNumber,q_id) {
