@@ -58,9 +58,9 @@ else if (count($topic_array) != 0 && count($company_array) == 0) {
 //------query fetching and sending starts below------
 $query = $main_query_string;
 //echo $query;
-$result = mysql_query($query) or die (mysql_error());
+$result = mysqli_query($con,$query) or die (mysql_error());
 $obj_array = array(); // array of objects fetched from the database using the above query
-while ($row = mysql_fetch_array($result)) { //this loop will fetch all the rows satisfying the criteria in the valid data-table
+while ($row = mysqli_fetch_array($result,MYSQLI_BOTH)) { //this loop will fetch all the rows satisfying the criteria in the valid data-table
     //--below obj will make an obj in valid JSON format
     $obj = array(
         'q_id' => base64_encode($row[0]),

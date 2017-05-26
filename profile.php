@@ -2,8 +2,8 @@
 include("conn.php");
 session_start();
 $user_check = $_SESSION['login_user'];
-$result = mysql_query("SELECT name FROM sign_up WHERE email='$user_check'");
-$row = mysql_fetch_assoc($result);
+$result = mysqli_query($con,"SELECT name FROM sign_up WHERE email='$user_check'");
+$row = mysqli_fetch_assoc($result);
 $login_session = $row['name'];
 if(!isset($login_session))
 {
@@ -51,7 +51,7 @@ if(!isset($login_session))
                 <li>
                     <a href="#"><img  src="http://cdn.growassets.net/assets/images/default_medium_profile_pic.png" style="height: 25px; width: 25px;border-radius: 50%" /></a>
                 </li>
-                <li class="btn" style="font-weight: bold;margin-top: 8%">Name</li>
+                <li class="btn" style="font-weight: bold;margin-top: 8%"><?php echo $login_session; ?></li>
                 <li class="button"><a href="logout.php">Logout</a></li>
             </ul>
         </div>

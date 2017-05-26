@@ -35,7 +35,7 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         $query = "INSERT into i(image_link) VALUES ('$target_file') ";
-        mysql_query($query) or die("insertion error".mysql_error());
+        mysqli_query($con,$query) or die("insertion error".mysql_error());
     } else {
         echo "Sorry, there was an error uploading your file. <br>";
     }

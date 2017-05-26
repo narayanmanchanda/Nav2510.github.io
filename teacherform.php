@@ -6,22 +6,22 @@
         if(strlen($code) == 0 && strlen($explanation) == 0)
         {
         $query = "INSERT INTO `questions` (`code`,`topic`, `discription`, `a`, `b`, `c`, `d`, `ans`) VALUES (NULL,'$topic', '$discription', '$a', '$b', '$c', '$d', '$ans')";
-            $result = mysql_query($query) or die("Invalid Entry : ".mysql_error());
+            $result = mysqli_query($con,$query) or die("Invalid Entry : ".mysql_error());
         }
         else if(strlen($code) == 0)
         {
             $query = "INSERT INTO `questions` (`code`,`topic`,`discription`,`a`,`b`,`c`,`d`,`ans`,`explanation`)VALUES(NULL,'$topic','$discription','$a','$b','$c','$d','$ans','$explanation')";
-            $result = mysql_query($query) or die("Invalid Entry : ".mysql_error());
+            $result = mysqli_query($con,$query) or die("Invalid Entry : ".mysql_error());
         }
         else if(strlen($explanation) == 0)
         {
             $query = "INSERT INTO `questions` (`code`,`topic`,`discription`,`a`,`b`,`c`,`d`,`ans`)VALUES('$code','$topic','$discription','$a','$b','$c','$d','$ans')";
-            $result = mysql_query($query) or die("Invalid Entry : ".mysql_error());
+            $result = mysqli_query($con,$query) or die("Invalid Entry : ".mysql_error());
         }
         else
         {
             $query = "INSERT INTO `questions` (`code`,`topic`,`discription`,`a`,`b`,`c`,`d`,`ans`,`explanation`)VALUES('$code','$topic','$discription','$a','$b','$c','$d','$ans','$explanation')";
-            $result = mysql_query($query) or die("Invalid Entry : ".mysql_error());
+            $result = mysqli_query($con,$query) or die("Invalid Entry : ".mysql_error());
         }
         /*
         echo "Topic: ".$topic."<br>";
